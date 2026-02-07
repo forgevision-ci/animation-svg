@@ -1,45 +1,37 @@
 # アニメーション SVG サンプルリポジトリ
 自作したアニメーション SVG を格納します。
 
-## フォージビジョンロゴ
+## [フォージビジョンロゴ](forgevision_logo/forgevision_logo_animated.svg)
 1. 左側の楕円と線がフェードイン＋スケールで登場
 2. 文字が左から順にスライド＋フェードインで登場
 3. 波線が描画アニメーション（stroke-dasharray）で最後に現れる
 
-<img src="forgevision_logo/forgevision_logo_animated.svg" width="50%">
-
-[リンク](forgevision_logo/forgevision_logo_animated.svg)
-
 ## フォージビジョンのスローガン
 
-1. 「共に着実に歩む。」という8文字で、各文字を一文字ずつフェードインするアニメーション  
+1. [フェード](together_steadily/together_steadily_animated_fade.svg):  
+「共に着実に歩む。」という8文字で、各文字を一文字ずつフェードインするアニメーション
+2. [スライド](together_steadily/together_steadily_animated_slide.svg):  
+「共に着実に歩む。」という8文字で、下からスライドしながらフェードインするバージョン
 
-<img src="together_steadily/together_steadily_animated_fade.svg" width="50%">
+## [KIRO](kiro/kiro_icon_animated.svg)
 
-[リンク](together_steadily/together_steadily_animated_fade.svg)
+1. 背景がふわっとフェードイン＋スケールアップで登場
+2. キャラクター本体が少し遅れて登場し、その後ゆっくり上下にふわふわ浮遊し続ける
+3. 両目が定期的にパチパチまばたきする
 
-2. 「共に着実に歩む。」という8文字で、下からスライドしながらフェードインするバージョン
-
-<img src="together_steadily/together_steadily_animated_slide.svg" width="50%">
-
-[リンク](together_steadily/together_steadily_animated_slide.svg)
-
-## メニュー
-ブラウザによっては動作しないかもしれません。  
-Mac のプレビューだと動作します。
+## [メニュー](menu/menu_animated.svg)
 
 1. ホバーすると、中心のドットから外側に向かって波紋のように順番にポップ（拡大→元に戻る）
 2. 色も #898989 → #444444 → #555555 と少し濃くなり、インタラクティブ感あり
 3. transform-box: fill-box + transform-origin: center で各ドットが自分の中心を基準にスケールする
 4. バウンス感のある cubic-bezier(0.34, 1.56, 0.64, 1) イージングで気持ちいい動きを表現
 
-<img src="menu/menu_animated.svg" width="50%">
-
-[リンク](menu/menu_animated.svg)
-
-## 矢印
 ブラウザによっては動作しないかもしれません。  
-Mac のプレビューだと動作します。
+Mac のプレビューや Chrome で開くと動作します。
+
+## [矢印](drawer_menu/drawer_menu_animated.svg)
+ブラウザによっては動作しないかもしれません。  
+Mac のプレビューや Chrome で開くと動作します。
 
 1. 通常時: 3本の水平線（ハンバーガーメニュー）
 2. ホバー時: 3本の線が下向き矢印（V字 + 縦線）に変形
@@ -47,8 +39,28 @@ Mac のプレビューだと動作します。
 4. 中の線 → 右斜め上から下がって V の右半分に
 5. 下の線 → 中央の縦線に変形
 
-<img src="drawer_menu/drawer_menu_animated.svg" width="50%">
+## [ファイル](file/file_animated.svg)
+ブラウザによっては動作しないかもしれません。  
+Mac のプレビューや Chrome で開くと動作します。
 
-[リンク](drawer_menu/drawer_menu_animated.svg)
+1. scene1（角が直角の四角形）が最初から表示
+2. 0.3s 後に scene2（背面の四角形）が下から 20px スライドしながらフェードイン
+3. 1.2s 後に scene1 → scene3 にクロスフェードで切り替わり、左上の角が折れた状態になる
 
+タイミングを調整したい場合は、各 animation の delay 値（0.3s, 1.2s など）を変更すれば調整できます。
 
+## [虫眼鏡](magnifying/magnifying_animated.svg)
+ブラウザによっては動作しないかもしれません。  
+Mac のプレビューや Chrome で開くと動作します。
+
+1. レンズが中心 (198.5, 200.1) から拡大して登場
+2. 0.6秒後に持ち手がレンズとの接点から伸びる
+3. 1.3秒後から全体が緩やかに拡大縮小を繰り返す
+
+## [Commit](commit/commit_animated.svg)
+
+1. 0s〜0.5s: Scene1 の円が 0% → 150% → 100% にバウンス拡大
+2. 0.5s〜0.9s: Scene1 から Scene3 へ縦線が下から上に伸びる（clipPath で制御）
+3. 0.9s〜1.4s: Scene3 の円が同じバウンス拡大
+4. 1.4s〜1.9s: Scene1 から Scene5 へ曲線が左から右にクリップで出現
+5. 1.9s〜2.4s: Scene5 の円が同じバウンス拡大

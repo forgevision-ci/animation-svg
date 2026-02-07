@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .st0 {
+        fill: #b9b6be;
+      }
+
+      /* ========================================== */
+      /* 虫の足のモゾモゾアニメーション               */
+      /* ========================================== */
+
+      #leg-left-upper {
+        transform-origin: 148.2px 250px;
+        animation: wA 0.4s ease-in-out infinite alternate;
+      }
+      #leg-right-upper {
+        transform-origin: 212.1px 250px;
+        animation: wB 0.4s ease-in-out 0.1s infinite alternate;
+      }
+      #leg-left-antenna {
+        transform-origin: 97.2px 320px;
+        animation: wC 0.5s ease-in-out 0.05s infinite alternate;
+      }
+      #leg-right-antenna {
+        transform-origin: 269.2px 320px;
+        animation: wD 0.5s ease-in-out 0.15s infinite alternate;
+      }
+      #leg-left-mid {
+        transform-origin: 67px 362.4px;
+        animation: wE 0.35s ease-in-out 0.08s infinite alternate;
+      }
+      #leg-right-mid {
+        transform-origin: 297px 362.4px;
+        animation: wF 0.35s ease-in-out 0.18s infinite alternate;
+      }
+      #leg-left-lower {
+        transform-origin: 97px 400px;
+        animation: wG 0.45s ease-in-out 0.12s infinite alternate;
+      }
+      #leg-right-lower {
+        transform-origin: 269px 400px;
+        animation: wH 0.45s ease-in-out 0.2s infinite alternate;
+      }
+
+      @keyframes wA { from { transform: rotate(-3deg) } to { transform: rotate(3deg) } }
+      @keyframes wB { from { transform: rotate(3deg) } to { transform: rotate(-3deg) } }
+      @keyframes wC { from { transform: rotate(-4deg) } to { transform: rotate(4deg) } }
+      @keyframes wD { from { transform: rotate(4deg) } to { transform: rotate(-4deg) } }
+      @keyframes wE { from { transform: rotate(-2.5deg) } to { transform: rotate(2.5deg) } }
+      @keyframes wF { from { transform: rotate(2.5deg) } to { transform: rotate(-2.5deg) } }
+      @keyframes wG { from { transform: rotate(-3deg) } to { transform: rotate(3deg) } }
+      @keyframes wH { from { transform: rotate(3deg) } to { transform: rotate(-3deg) } }
+    </style>
+
+    <!-- ============================================ -->
+    <!-- Scene2 描画用クリップパス                      -->
+    <!--                                              -->
+    <!-- 三角形(再生ボタン)の描画を時計回りに行う       -->
+    <!-- 起点: 虫の前面 (縦線の中間 x≈222, y≈168)     -->
+    <!--                                              -->
+    <!-- 描画順:                                       -->
+    <!--  Phase1: 上方向へ (y:168 → y:10)             -->
+    <!--  Phase2: 右斜め下へ (三角の右辺)              -->
+    <!--  Phase3: 左方向へ戻る (三角の下辺)            -->
+    <!-- ============================================ -->
+
+    <clipPath id="clip-scene2">
+      <!-- Phase1: 縦線を下から上へ描画 (0.3s~0.55s) -->
+      <!-- 虫の前面(y≈170)から上端(y≈10)へ -->
+      <rect x="205" y="170" width="40" height="0">
+        <animate attributeName="y"      values="170;8"   dur="0.25s" begin="0.3s" fill="freeze"/>
+        <animate attributeName="height"  values="0;162"   dur="0.25s" begin="0.3s" fill="freeze"/>
+      </rect>
+
+      <!-- Phase2: 上の頂点から右斜め下へ (0.55s~1.05s) -->
+      <!-- 三角形の上辺: 左上(x≈230)から右端(x≈500)へ -->
+      <!-- 同時に高さも広がり、三角形の右辺全体をカバー -->
+      <rect x="240" y="0" width="0" height="0">
+        <animate attributeName="width"  values="0;270"  dur="0.5s" begin="0.55s" fill="freeze"/>
+        <animate attributeName="height" values="0;210"  dur="0.5s" begin="0.55s" fill="freeze"/>
+      </rect>
+
+      <!-- Phase3: 右下から左方向へ戻る (1.05s~1.4s) -->
+      <!-- 三角形の下辺: 右端(x≈500)から左(x≈350)へ -->
+      <rect y="190" height="100">
+        <animate attributeName="x"     values="500;340" dur="0.35s" begin="1.05s" fill="freeze"/>
+        <animate attributeName="width"  values="0;160"   dur="0.35s" begin="1.05s" fill="freeze"/>
+      </rect>
+    </clipPath>
+  </defs>
+
+  <!-- ============================================ -->
+  <!-- Scene1: 虫 (最初から表示、足がモゾモゾ動く)    -->
+  <!-- ============================================ -->
+  <g id="scene1">
+    <!-- 胴体 -->
+    <path class="st0" d="M180.4,481.6c-53.4,0-96.9-53.5-96.9-119.2s43.5-119.2,96.9-119.2,96.9,53.5,96.9,119.2-43.5,119.2-96.9,119.2ZM180.4,259.3c-44.6,0-80.8,46.2-80.8,103.1s36.3,103.1,80.8,103.1,80.8-46.2,80.8-103.1-36.2-103.1-80.8-103.1Z"/>
+
+    <g id="leg-left-antenna">
+      <path class="st0" d="M97.2,331.5c-.3,0-.6,0-.9,0-52.2-5.8-61.9-84.4-62.3-87.7-.5-4.4,2.7-8.4,7.1-8.9,4.4-.4,8.4,2.7,8.9,7.1,0,.7,8.6,69.2,48,73.6,4.4.5,7.6,4.5,7.1,8.9-.5,4.1-3.9,7.2-8,7.2Z"/>
+    </g>
+    <g id="leg-right-antenna">
+      <path class="st0" d="M269.2,331.5c-4.1,0-7.5-3.1-8-7.2-.5-4.4,2.7-8.4,7.1-8.9,39.4-4.3,48-72.9,48-73.6.5-4.4,4.6-7.5,8.9-7.1,4.4.5,7.6,4.5,7.1,8.9-.4,3.3-10.1,82-62.3,87.7-.3,0-.6,0-.9,0Z"/>
+    </g>
+
+    <g id="leg-left-mid">
+      <path class="st0" d="M91.5,370.5h-49.5c-4.4,0-8.1-3.6-8.1-8.1s3.6-8.1,8.1-8.1h49.5c4.4,0,8.1,3.6,8.1,8.1s-3.6,8.1-8.1,8.1Z"/>
+    </g>
+    <g id="leg-right-mid">
+      <path class="st0" d="M321.6,370.5h-49.5c-4.4,0-8.1-3.6-8.1-8.1s3.6-8.1,8.1-8.1h49.5c4.4,0,8.1,3.6,8.1,8.1s-3.6,8.1-8.1,8.1Z"/>
+    </g>
+
+    <g id="leg-left-lower">
+      <path class="st0" d="M42.5,490c-.3,0-.6,0-.9,0-4.4-.5-7.6-4.5-7.1-8.9.4-3.3,10.1-82,62.3-87.7,4.4-.5,8.4,2.7,8.9,7.1.5,4.4-2.7,8.4-7.1,8.9-39.4,4.3-48,72.9-48,73.6-.5,4.1-4,7.1-8,7.1Z"/>
+    </g>
+    <g id="leg-right-lower">
+      <path class="st0" d="M324.9,490c-4,0-7.5-3-8-7.1,0-.7-8.6-69.2-48-73.6-4.4-.5-7.6-4.5-7.1-8.9.5-4.4,4.5-7.6,8.9-7.1,52.2,5.7,61.9,84.4,62.3,87.7.5,4.4-2.7,8.4-7.1,8.9-.3,0-.6,0-.9,0Z"/>
+    </g>
+
+    <g id="leg-left-upper">
+      <path class="st0" d="M148.2,266.9c-1.5,0-3-.4-4.3-1.3-17.3-11.1-22.8-50.2-23.7-57.9-.5-4.4,2.6-8.4,7-9,4.4-.5,8.4,2.6,9,7,2,16.1,8.3,41.1,16.4,46.3,3.7,2.4,4.8,7.4,2.4,11.1-1.5,2.4-4.1,3.7-6.8,3.7Z"/>
+    </g>
+    <g id="leg-right-upper">
+      <path class="st0" d="M212.1,266.9c-2.7,0-5.2-1.3-6.8-3.7-2.4-3.7-1.3-8.7,2.4-11.1,8.1-5.2,14.4-30.2,16.4-46.3.5-4.4,4.5-7.6,9-7,4.4.5,7.6,4.5,7,9-.9,7.7-6.4,46.9-23.7,57.9-1.3.9-2.9,1.3-4.3,1.3Z"/>
+    </g>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- Scene2: 三角形ライン (時計回りに描画)          -->
+  <!-- ============================================ -->
+  <g id="scene2" clip-path="url(#clip-scene2)">
+    <path class="st0" d="M362.8,285.1c-2.8,0-5.6-1.5-7-4.1-2.2-3.9-.8-8.8,3.1-11,.1,0,14.4-8,82.1-44.3,19.6-10.6,30.2-21.4,30.4-31.5.2-10.8-11.7-20.3-16.4-23-1.8-1.3-131.2-91.7-183.9-126.6-22.6-15-31.9-13-34.9-11.4-5.8,3-6.1,12.9-6.1,13v114.3c0,4.5-3.6,8.1-8.1,8.1s-8.1-3.6-8.1-8.1V46.1c0-7.2,3.1-21,14.5-27.1,12.3-6.6,29.1-2.6,51.4,12.1,52.9,35,182.4,125.6,183.7,126.5.5.2,24.2,14.4,23.8,36.8-.3,16.4-13.4,31.7-38.9,45.4-67.5,36.3-81.7,44.2-81.9,44.2-1.2.7-2.6,1-3.9,1Z"/>
+  </g>
+</svg>

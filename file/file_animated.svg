@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .st0 {
+        fill: #b9b6be;
+      }
+
+      /* === scene2: 背面の四角形 (下からスライドイン) === */
+      #scene2-anim {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.5s ease-out 0.3s forwards;
+      }
+
+      @keyframes slideUp {
+        0%   { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
+      /* === scene1: 前面の四角形 (初期表示、折れる前) === */
+      #scene1-anim {
+        opacity: 1;
+        animation: fadeOutScene1 0.3s ease-in 0.9s forwards;
+      }
+
+      @keyframes fadeOutScene1 {
+        0%   { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      /* === scene3: 角が折れた完成形 === */
+      #scene3-anim {
+        opacity: 0;
+        animation: fadeInScene3 0.1s ease-in 0.9s forwards;
+      }
+
+      @keyframes fadeInScene3 {
+        0%   { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      /* === 折り目の三角形 (角が折れるアニメーション) === */
+      #fold-triangle {
+        opacity: 0;
+        transform-origin: 264.8px 253.1px;
+        transform: rotate(0deg) scale(0);
+        animation: foldCorner 0.4s ease-in-out 1.2s forwards;
+      }
+
+      @keyframes foldCorner {
+        0%   { opacity: 0; transform: rotate(-90deg) scale(0); }
+        50%  { opacity: 1; }
+        100% { opacity: 1; transform: rotate(0deg) scale(1); }
+      }
+
+      /* === 折れた部分のマスク用 (左上の角を隠す) === */
+      #corner-mask-rect {
+        opacity: 1;
+        animation: showCornerCut 0.01s ease-in 1.2s forwards;
+      }
+
+      @keyframes showCornerCut {
+        0%   { opacity: 1; }
+        100% { opacity: 0; }
+      }
+    </style>
+
+    <!-- 折れた角を切り取るためのクリップパス -->
+    <clipPath id="folded-clip">
+      <path d="M246.9,253.1 L246.9,271 L264.8,271 L286.6,271 L286.6,253.1 L286.6,304.7 L246.9,304.7 L246.9,253.1Z"/>
+      <rect x="264.8" y="253.1" width="22" height="51.6"/>
+      <rect x="246.9" y="271" width="40" height="33.7"/>
+    </clipPath>
+  </defs>
+
+  <!-- scene2: 背面の四角形 (下からスライドイン) -->
+  <g id="scene2-anim">
+    <path class="st0" d="M289.3,260.7h-2.6v1h2.6c2.4,0,4.3,1.9,4.3,4.3v39.6c0,2.4-1.9,4.3-4.3,4.3h-28.1c-2.4,0-4.3-1.9-4.3-4.3v-.9h-1v.9c0,2.9,2.4,5.3,5.3,5.3h28.1c2.9,0,5.3-2.4,5.3-5.3v-39.6c0-2.9-2.4-5.3-5.3-5.3Z"/>
+  </g>
+
+  <!-- scene1: 前面の四角形 (折れる前の状態) -->
+  <g id="scene1-anim">
+    <path class="st0" d="M281.4,304.7h-29.2c-2.9,0-5.3-2.4-5.3-5.3v-41c0-2.9,2.4-5.3,5.3-5.3h29.2c2.9,0,5.3,2.4,5.3,5.3v41c0,2.9-2.4,5.3-5.3,5.3ZM252.2,254.1c-2.4,0-4.3,1.9-4.3,4.3v41c0,2.4,1.9,4.3,4.3,4.3h29.2c2.4,0,4.3-1.9,4.3-4.3v-41c0-2.4-1.9-4.3-4.3-4.3h-29.2Z"/>
+  </g>
+
+  <!-- scene3: 角が折れた完成形 -->
+  <g id="scene3-anim">
+    <path class="st0" d="M281.4,253.1h-16.6l-17.9,17.9v28.4c0,2.9,2.4,5.3,5.3,5.3h29.2c2.9,0,5.3-2.4,5.3-5.3v-41c0-2.9-2.4-5.3-5.3-5.3ZM264.3,255.1v15.3h-15.3l15.3-15.3ZM285.7,299.4c0,2.4-1.9,4.3-4.3,4.3h-29.2c-2.4,0-4.3-1.9-4.3-4.3v-28h17.3v-17.3h16.1c2.4,0,4.3,1.9,4.3,4.3v41Z"/>
+  </g>
+</svg>
