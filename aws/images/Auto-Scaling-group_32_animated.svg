@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon-Architecture-Group/32/Auto-Scaling-group_32_Animated</title>
+    <defs>
+        <style>
+            /* 背景: フェードイン */
+            @keyframes bgFadeIn {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+
+            /* 左矢印: 中心から左へ飛び出す */
+            @keyframes arrowLeft {
+                0% { opacity: 0; transform: translateX(6px) scale(0.7); }
+                70% { opacity: 1; transform: translateX(-0.5px) scale(1.03); }
+                100% { opacity: 1; transform: translateX(0) scale(1); }
+            }
+
+            /* 右矢印: 中心から右へ飛び出す */
+            @keyframes arrowRight {
+                0% { opacity: 0; transform: translateX(-6px) scale(0.7); }
+                70% { opacity: 1; transform: translateX(0.5px) scale(1.03); }
+                100% { opacity: 1; transform: translateX(0) scale(1); }
+            }
+
+            /* 上矢印: 中心から上へ飛び出す */
+            @keyframes arrowUp {
+                0% { opacity: 0; transform: translateY(6px) scale(0.7); }
+                70% { opacity: 1; transform: translateY(-0.5px) scale(1.03); }
+                100% { opacity: 1; transform: translateY(0) scale(1); }
+            }
+
+            /* 下矢印: 中心から下へ飛び出す */
+            @keyframes arrowDown {
+                0% { opacity: 0; transform: translateY(-6px) scale(0.7); }
+                70% { opacity: 1; transform: translateY(0.5px) scale(1.03); }
+                100% { opacity: 1; transform: translateY(0) scale(1); }
+            }
+
+            /* パルス: 矢印が呼吸するように外側へ微動 */
+            @keyframes pulseLeft {
+                0%, 100% { transform: translateX(0); }
+                50% { transform: translateX(-1.2px); }
+            }
+            @keyframes pulseRight {
+                0%, 100% { transform: translateX(0); }
+                50% { transform: translateX(1.2px); }
+            }
+            @keyframes pulseUp {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-1.2px); }
+            }
+            @keyframes pulseDown {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(1.2px); }
+            }
+
+            .bg {
+                animation: bgFadeIn 0.4s ease-out both;
+            }
+
+            .arrow-left {
+                animation:
+                    arrowLeft 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both,
+                    pulseLeft 3s ease-in-out 1.4s infinite;
+                transform-origin: 12.5px 19.5px;
+            }
+
+            .arrow-right {
+                animation:
+                    arrowRight 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both,
+                    pulseRight 3s ease-in-out 1.4s infinite;
+                transform-origin: 28.5px 19.5px;
+            }
+
+            .arrow-up {
+                animation:
+                    arrowUp 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both,
+                    pulseUp 3s ease-in-out 1.4s infinite;
+                transform-origin: 20.5px 8px;
+            }
+
+            .arrow-down {
+                animation:
+                    arrowDown 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both,
+                    pulseDown 3s ease-in-out 1.4s infinite;
+                transform-origin: 20.5px 31px;
+            }
+        </style>
+    </defs>
+
+    <g id="Auto-Scaling-group-Animated" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+
+        <!-- 背景 -->
+        <rect class="bg" fill="#ED7100" x="0" y="0" width="40" height="40"/>
+
+        <!-- 左矢印 -->
+        <g class="arrow-left">
+            <path d="M18.021,19.4952538 C18.021,19.3402538 17.95,19.1982538 17.833,19.1042538 L14.879,16.1512538 L14.172,16.8582538 L16.31,18.9952538 L7,18.9952538 L7,19.9952538 L16.314,19.9952538 L14.172,22.1372538 L14.879,22.8442538 L17.848,19.8752538 C17.956,19.7812538 18.021,19.6432538 18.021,19.4952538 L18.021,19.4952538 Z" fill="#FFFFFF"/>
+        </g>
+
+        <!-- 右矢印 -->
+        <g class="arrow-right">
+            <path d="M33.986,18.9952538 L24.675,18.9952538 L26.813,16.8582538 L26.106,16.1512538 L23.137,19.1202538 C23.03,19.2132538 22.964,19.3512538 22.964,19.4992538 C22.964,19.6542538 23.036,19.7972538 23.153,19.8902538 L26.106,22.8442538 L26.813,22.1372538 L24.671,19.9952538 L33.986,19.9952538 L33.986,18.9952538 Z" fill="#FFFFFF"/>
+        </g>
+
+        <!-- 上矢印 -->
+        <g class="arrow-up">
+            <path d="M17.858,9.83725376 L17.151,9.13025376 L20.103,6.17925376 C20.285,5.94725376 20.683,5.93925376 20.877,6.16225376 L23.844,9.13025376 L23.137,9.83725376 L20.996,7.69625376 L20.996,17.0102538 L19.996,17.0102538 L19.996,7.70025376 L17.858,9.83725376 Z" fill="#FFFFFF"/>
+        </g>
+
+        <!-- 下矢印 -->
+        <g class="arrow-down">
+            <path d="M20.996,31.3242538 L20.996,22.0102538 L19.996,22.0102538 L19.996,31.3202538 L17.858,29.1832538 L17.151,29.8902538 L20.12,32.8572538 C20.213,32.9662538 20.352,33.0322538 20.5,33.0322538 C20.656,33.0322538 20.8,32.9592538 20.893,32.8412538 L23.844,29.8902538 L23.137,29.1832538 L20.996,31.3242538 Z" fill="#FFFFFF"/>
+        </g>
+
+    </g>
+</svg>

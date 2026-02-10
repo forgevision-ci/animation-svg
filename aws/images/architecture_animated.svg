@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <title>AWS Architecture Diagram - Animated</title>
+  <defs>
+    <style>
+      @keyframes fadeIn { 0%{opacity:0} 100%{opacity:1} }
+      @keyframes borderDraw { 0%{stroke-dashoffset:var(--len);opacity:0} 5%{opacity:1} 100%{stroke-dashoffset:0;opacity:1} }
+      @keyframes iconPop { 0%{opacity:0;transform:scale(0.3)} 60%{opacity:1;transform:scale(1.08)} 100%{opacity:1;transform:scale(1)} }
+      @keyframes labelUp { 0%{opacity:0;transform:translateY(8px)} 100%{opacity:1;transform:translateY(0)} }
+      @keyframes lineDraw { 0%{stroke-dashoffset:400;opacity:0} 5%{opacity:1} 100%{stroke-dashoffset:0;opacity:1} }
+      @keyframes dashFlow { 0%{stroke-dashoffset:0} 100%{stroke-dashoffset:-20} }
+      @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+      @keyframes pulseOrange { 0%,100%{filter:drop-shadow(0 0 0 transparent)} 50%{filter:drop-shadow(0 0 6px rgba(237,113,0,0.5))} }
+      @keyframes pulseViolet { 0%,100%{filter:drop-shadow(0 0 0 transparent)} 50%{filter:drop-shadow(0 0 6px rgba(140,79,255,0.5))} }
+      @keyframes flowDot { 0%{opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{opacity:0} }
+
+      .cloud-border { stroke-dasharray:2200; stroke-dashoffset:2200; animation:borderDraw 1.5s ease-out 0.2s both; --len:2200; }
+      .vpc-border   { stroke-dasharray:1800; stroke-dashoffset:1800; animation:borderDraw 1.2s ease-out 0.7s both; --len:1800; }
+
+      .cloud-badge { animation:iconPop 0.5s cubic-bezier(.34,1.56,.64,1) 0.4s both; }
+      .vpc-badge   { animation:iconPop 0.5s cubic-bezier(.34,1.56,.64,1) 0.8s both; }
+
+      .lbl-cloud { animation:labelUp 0.4s ease-out 0.6s both; }
+      .lbl-vpc   { animation:labelUp 0.4s ease-out 1.0s both; }
+
+      .icon-as   { animation:iconPop 0.6s cubic-bezier(.34,1.56,.64,1) 1.2s both, pulseOrange 4s ease-in-out 2.5s infinite; }
+      .lbl-as    { animation:labelUp 0.4s ease-out 1.4s both; }
+
+      .icon-ec2a { animation:iconPop 0.5s cubic-bezier(.34,1.56,.64,1) 1.5s both, floatY 5s ease-in-out 2.8s infinite; }
+      .icon-ec2b { animation:iconPop 0.5s cubic-bezier(.34,1.56,.64,1) 1.7s both, floatY 5s ease-in-out 3.1s infinite; }
+      .lbl-ec2a  { animation:labelUp 0.4s ease-out 1.7s both; }
+      .lbl-ec2b  { animation:labelUp 0.4s ease-out 1.9s both; }
+
+      .icon-nat  { animation:iconPop 0.6s cubic-bezier(.34,1.56,.64,1) 1.9s both, pulseViolet 4s ease-in-out 3.2s infinite; }
+      .lbl-nat   { animation:labelUp 0.4s ease-out 2.1s both; }
+
+      .conn-1 { stroke-dasharray:400; animation:lineDraw 0.7s ease-out 2.2s both; }
+      .conn-2 { stroke-dasharray:400; animation:lineDraw 0.7s ease-out 2.4s both; }
+      .conn-3 { stroke-dasharray:400; animation:lineDraw 0.7s ease-out 2.6s both; }
+      .conn-4 { stroke-dasharray:400; animation:lineDraw 0.7s ease-out 2.8s both; }
+      .conn-5 { stroke-dasharray:8,5; animation:fadeIn 0.5s ease-out 3.0s both, dashFlow 1.5s linear 3.5s infinite; }
+
+      .icon-inet { animation:iconPop 0.5s cubic-bezier(.34,1.56,.64,1) 2.8s both; }
+      .lbl-inet  { animation:labelUp 0.4s ease-out 3.0s both; }
+
+      /* Flow particles */
+      .particle { animation:flowDot 2s ease-in-out infinite; }
+      .p1 { animation-delay:3.5s; }
+      .p2 { animation-delay:3.8s; }
+      .p3 { animation-delay:4.1s; }
+      .p4 { animation-delay:4.4s; }
+      .p5 { animation-delay:4.0s; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#fff" rx="8"/>
+
+  <!-- ===== AWS Cloud boundary ===== -->
+  <rect class="cloud-border" x="20" y="20" width="760" height="460" rx="10" fill="none" stroke="#232F3E" stroke-width="2"/>
+
+  <!-- AWS Cloud badge -->
+  <g class="cloud-badge" transform="translate(32,10)">
+    <rect width="36" height="36" rx="4" fill="#242F3E"/>
+    <text x="18" y="23" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#FF9900">aws</text>
+  </g>
+  <text class="lbl-cloud" x="74" y="34" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#232F3E">AWS Cloud</text>
+
+  <!-- ===== VPC boundary ===== -->
+  <rect class="vpc-border" x="100" y="65" width="600" height="390" rx="8" fill="none" stroke="#8C4FFF" stroke-width="2"/>
+
+  <!-- VPC badge -->
+  <g class="vpc-badge" transform="translate(112,56)">
+    <rect width="32" height="32" rx="4" fill="#8C4FFF"/>
+    <text x="16" y="20" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#fff">VPC</text>
+  </g>
+  <text class="lbl-vpc" x="150" y="78" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#8C4FFF">VPC</text>
+
+  <!-- ===== Auto Scaling Group (left) ===== -->
+  <g class="icon-as" style="transform-origin:210px 230px">
+    <rect x="185" y="205" width="50" height="50" rx="6" fill="#ED7100"/>
+    <!-- Simplified chip + arrows icon -->
+    <rect x="200" y="220" width="20" height="20" rx="2" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <!-- 4 arrows -->
+    <line x1="210" y1="212" x2="210" y2="218" stroke="#fff" stroke-width="1.2"/>
+    <polygon points="206,215 210,210 214,215" fill="#fff"/>
+    <line x1="210" y1="242" x2="210" y2="248" stroke="#fff" stroke-width="1.2"/>
+    <polygon points="206,245 210,250 214,245" fill="#fff"/>
+    <line x1="182" y1="230" x2="188" y2="230" stroke="#fff" stroke-width="1.2"/>
+    <polygon points="185,226 180,230 185,234" fill="#fff"/>
+    <line x1="232" y1="230" x2="238" y2="230" stroke="#fff" stroke-width="1.2"/>
+    <polygon points="235,226 240,230 235,234" fill="#fff"/>
+  </g>
+  <text class="lbl-as" x="210" y="275" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="600" fill="#545b64">Auto Scaling</text>
+
+  <!-- ===== EC2 Instance A (top) ===== -->
+  <g class="icon-ec2a" style="transform-origin:400px 170px">
+    <g transform="translate(376,146)">
+      <rect x="6" y="6" width="36" height="36" rx="1" fill="none" stroke="#ED7100" stroke-width="2"/>
+      <!-- Top pins -->
+      <rect x="12" y="0" width="2" height="6" fill="#ED7100"/>
+      <rect x="20" y="0" width="2" height="6" fill="#ED7100"/>
+      <rect x="28" y="0" width="2" height="6" fill="#ED7100"/>
+      <!-- Bottom pins -->
+      <rect x="12" y="42" width="2" height="6" fill="#ED7100"/>
+      <rect x="20" y="42" width="2" height="6" fill="#ED7100"/>
+      <rect x="28" y="42" width="2" height="6" fill="#ED7100"/>
+      <!-- Left pins -->
+      <rect x="0" y="12" width="6" height="2" fill="#ED7100"/>
+      <rect x="0" y="20" width="6" height="2" fill="#ED7100"/>
+      <rect x="0" y="28" width="6" height="2" fill="#ED7100"/>
+      <!-- Right pins -->
+      <rect x="42" y="12" width="6" height="2" fill="#ED7100"/>
+      <rect x="42" y="20" width="6" height="2" fill="#ED7100"/>
+      <rect x="42" y="28" width="6" height="2" fill="#ED7100"/>
+    </g>
+  </g>
+  <text class="lbl-ec2a" x="400" y="210" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" fill="#545b64">EC2 Instance</text>
+
+  <!-- ===== EC2 Instance B (bottom) ===== -->
+  <g class="icon-ec2b" style="transform-origin:400px 310px">
+    <g transform="translate(376,286)">
+      <rect x="6" y="6" width="36" height="36" rx="1" fill="none" stroke="#ED7100" stroke-width="2"/>
+      <rect x="12" y="0" width="2" height="6" fill="#ED7100"/>
+      <rect x="20" y="0" width="2" height="6" fill="#ED7100"/>
+      <rect x="28" y="0" width="2" height="6" fill="#ED7100"/>
+      <rect x="12" y="42" width="2" height="6" fill="#ED7100"/>
+      <rect x="20" y="42" width="2" height="6" fill="#ED7100"/>
+      <rect x="28" y="42" width="2" height="6" fill="#ED7100"/>
+      <rect x="0" y="12" width="6" height="2" fill="#ED7100"/>
+      <rect x="0" y="20" width="6" height="2" fill="#ED7100"/>
+      <rect x="0" y="28" width="6" height="2" fill="#ED7100"/>
+      <rect x="42" y="12" width="6" height="2" fill="#ED7100"/>
+      <rect x="42" y="20" width="6" height="2" fill="#ED7100"/>
+      <rect x="42" y="28" width="6" height="2" fill="#ED7100"/>
+    </g>
+  </g>
+  <text class="lbl-ec2b" x="400" y="350" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" fill="#545b64">EC2 Instance</text>
+
+  <!-- ===== NAT Gateway (right) ===== -->
+  <g class="icon-nat" style="transform-origin:590px 230px">
+    <g transform="translate(566,206)">
+      <circle cx="24" cy="24" r="23" fill="none" stroke="#8C4FFF" stroke-width="2"/>
+      <!-- Simplified NAT arrows -->
+      <!-- Left arrows (3 small triangles) -->
+      <polygon points="10,16 16,19 10,22" fill="#8C4FFF"/>
+      <polygon points="10,21 16,24 10,27" fill="#8C4FFF"/>
+      <polygon points="10,26 16,29 10,32" fill="#8C4FFF"/>
+      <!-- Center vertical line -->
+      <line x1="20" y1="12" x2="20" y2="36" stroke="#8C4FFF" stroke-width="1.5"/>
+      <!-- Right arrow -->
+      <polygon points="28,18 28,30 38,24" fill="#8C4FFF"/>
+      <line x1="20" y1="24" x2="28" y2="24" stroke="#8C4FFF" stroke-width="1.5"/>
+    </g>
+  </g>
+  <text class="lbl-nat" x="590" y="275" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" fill="#545b64">NAT Gateway</text>
+
+  <!-- ===== Connection Lines ===== -->
+
+  <!-- Auto Scaling → EC2 A (orange) -->
+  <line class="conn-1" x1="240" y1="222" x2="376" y2="170" stroke="#ED7100" stroke-width="2" fill="none"/>
+  <!-- Auto Scaling → EC2 B (orange) -->
+  <line class="conn-2" x1="240" y1="238" x2="376" y2="310" stroke="#ED7100" stroke-width="2" fill="none"/>
+
+  <!-- EC2 A → NAT (purple) -->
+  <line class="conn-3" x1="424" y1="170" x2="566" y2="222" stroke="#8C4FFF" stroke-width="2" fill="none"/>
+  <!-- EC2 B → NAT (purple) -->
+  <line class="conn-4" x1="424" y1="310" x2="566" y2="238" stroke="#8C4FFF" stroke-width="2" fill="none"/>
+
+  <!-- NAT → Internet (black dashed) -->
+  <line class="conn-5" x1="614" y1="230" x2="730" y2="230" stroke="#232F3E" stroke-width="2" fill="none"/>
+
+  <!-- ===== Flow particles ===== -->
+  <!-- AS → EC2 A -->
+  <circle class="particle p1" r="3" fill="#ED7100" opacity="0">
+    <animateMotion dur="2s" repeatCount="indefinite" begin="3.5s" path="M240,222 L376,170"/>
+  </circle>
+  <!-- AS → EC2 B -->
+  <circle class="particle p2" r="3" fill="#ED7100" opacity="0">
+    <animateMotion dur="2s" repeatCount="indefinite" begin="3.8s" path="M240,238 L376,310"/>
+  </circle>
+  <!-- EC2 A → NAT -->
+  <circle class="particle p3" r="3" fill="#8C4FFF" opacity="0">
+    <animateMotion dur="2.2s" repeatCount="indefinite" begin="4.1s" path="M424,170 L566,222"/>
+  </circle>
+  <!-- EC2 B → NAT -->
+  <circle class="particle p4" r="3" fill="#8C4FFF" opacity="0">
+    <animateMotion dur="2.2s" repeatCount="indefinite" begin="4.4s" path="M424,310 L566,238"/>
+  </circle>
+  <!-- NAT → Internet -->
+  <circle class="particle p5" r="3" fill="#00A6A0" opacity="0">
+    <animateMotion dur="1.8s" repeatCount="indefinite" begin="4.0s" path="M614,230 L730,230"/>
+  </circle>
+
+  <!-- ===== Internet icon ===== -->
+  <g class="icon-inet" style="transform-origin:745px 230px">
+    <circle cx="745" cy="230" r="20" fill="none" stroke="#232F3E" stroke-width="2"/>
+    <ellipse cx="745" cy="230" rx="10" ry="20" fill="none" stroke="#232F3E" stroke-width="1"/>
+    <line x1="725" y1="230" x2="765" y2="230" stroke="#232F3E" stroke-width="1"/>
+    <line x1="728" y1="218" x2="762" y2="218" stroke="#232F3E" stroke-width="0.8"/>
+    <line x1="728" y1="242" x2="762" y2="242" stroke="#232F3E" stroke-width="0.8"/>
+  </g>
+  <text class="lbl-inet" x="745" y="262" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" fill="#545b64">Internet</text>
+
+  <!-- ===== Legend ===== -->
+  <g transform="translate(130,410)" style="animation:fadeIn 0.5s ease-out 3.2s both; opacity:0">
+    <text x="0" y="12" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#545b64">Legend</text>
+    <!-- Orange line -->
+    <line x1="0" y1="30" x2="30" y2="30" stroke="#ED7100" stroke-width="2"/>
+    <text x="38" y="34" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#545b64">Compute / Scaling</text>
+    <!-- Purple line -->
+    <line x1="180" y1="30" x2="210" y2="30" stroke="#8C4FFF" stroke-width="2"/>
+    <text x="218" y="34" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#545b64">VPC / Networking</text>
+    <!-- Black dashed -->
+    <line x1="370" y1="30" x2="400" y2="30" stroke="#232F3E" stroke-width="2" stroke-dasharray="6,3"/>
+    <text x="408" y="34" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#545b64">External / Internet</text>
+  </g>
+</svg>

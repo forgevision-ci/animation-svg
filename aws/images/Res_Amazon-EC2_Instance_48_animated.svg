@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon-Resource/Compute/Res_Amazon-EC2_Instance_48_Animated</title>
+    <defs>
+        <style>
+            /* 内側の四角（グループ）: スケールイン */
+            @keyframes innerAppear {
+                0% { opacity: 0; transform: scale(0.5); }
+                60% { opacity: 1; transform: scale(1.04); }
+                100% { opacity: 1; transform: scale(1); }
+            }
+
+            /* 内側の塗り: 登場後にフェードアウトして白抜きに */
+            @keyframes fillFadeOut {
+                0%   { opacity: 1; }
+                100% { opacity: 0; }
+            }
+
+            /* 外枠: フェードイン + スケール（少し遅れて） */
+            @keyframes frameAppear {
+                0% { opacity: 0; transform: scale(0.7); }
+                60% { opacity: 1; transform: scale(1.02); }
+                100% { opacity: 1; transform: scale(1); }
+            }
+
+            /* 上ピン: 上からスライドイン */
+            @keyframes pinTop {
+                0% { opacity: 0; transform: translateY(-7px); }
+                70% { opacity: 1; transform: translateY(0.5px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+
+            /* 下ピン: 下からスライドイン */
+            @keyframes pinBottom {
+                0% { opacity: 0; transform: translateY(7px); }
+                70% { opacity: 1; transform: translateY(-0.5px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+
+            /* 左ピン: 左からスライドイン */
+            @keyframes pinLeft {
+                0% { opacity: 0; transform: translateX(-7px); }
+                70% { opacity: 1; transform: translateX(0.5px); }
+                100% { opacity: 1; transform: translateX(0); }
+            }
+
+            /* 右ピン: 右からスライドイン */
+            @keyframes pinRight {
+                0% { opacity: 0; transform: translateX(7px); }
+                70% { opacity: 1; transform: translateX(-0.5px); }
+                100% { opacity: 1; transform: translateX(0); }
+            }
+
+            /* 穏やかなパルス（稼働感） */
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.012); }
+            }
+
+            /* 光のスイープ（左上→右下） */
+            @keyframes shine {
+                0%   { transform: translate(-24px, -24px); opacity: 0; }
+                10%  { opacity: 0.18; }
+                50%  { opacity: 0.18; }
+                90%  { opacity: 0; }
+                100% { transform: translate(24px, 24px); opacity: 0; }
+            }
+
+            .inner-square {
+                animation:
+                    innerAppear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+                    pulse 4s ease-in-out 1.5s infinite;
+                transform-origin: 24px 24px;
+            }
+
+            /* 内側の塗りつぶし → フェードアウトして白抜きに */
+            .inner-fill {
+                animation: fillFadeOut 0.6s ease-out 0.8s both;
+            }
+
+            .outer-frame {
+                animation:
+                    frameAppear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both,
+                    pulse 4s ease-in-out 1.5s infinite;
+                transform-origin: 24px 24px;
+            }
+
+            /* 上ピン（左→右） */
+            .pt1 { animation: pinTop 0.4s cubic-bezier(0.25,1,0.5,1) 0.30s both; }
+            .pt2 { animation: pinTop 0.4s cubic-bezier(0.25,1,0.5,1) 0.36s both; }
+            .pt3 { animation: pinTop 0.4s cubic-bezier(0.25,1,0.5,1) 0.42s both; }
+            .pt4 { animation: pinTop 0.4s cubic-bezier(0.25,1,0.5,1) 0.48s both; }
+            .pt5 { animation: pinTop 0.4s cubic-bezier(0.25,1,0.5,1) 0.54s both; }
+
+            /* 下ピン */
+            .pb1 { animation: pinBottom 0.4s cubic-bezier(0.25,1,0.5,1) 0.30s both; }
+            .pb2 { animation: pinBottom 0.4s cubic-bezier(0.25,1,0.5,1) 0.36s both; }
+            .pb3 { animation: pinBottom 0.4s cubic-bezier(0.25,1,0.5,1) 0.42s both; }
+            .pb4 { animation: pinBottom 0.4s cubic-bezier(0.25,1,0.5,1) 0.48s both; }
+            .pb5 { animation: pinBottom 0.4s cubic-bezier(0.25,1,0.5,1) 0.54s both; }
+
+            /* 左ピン（上→下） */
+            .pl1 { animation: pinLeft 0.4s cubic-bezier(0.25,1,0.5,1) 0.33s both; }
+            .pl2 { animation: pinLeft 0.4s cubic-bezier(0.25,1,0.5,1) 0.39s both; }
+            .pl3 { animation: pinLeft 0.4s cubic-bezier(0.25,1,0.5,1) 0.45s both; }
+            .pl4 { animation: pinLeft 0.4s cubic-bezier(0.25,1,0.5,1) 0.51s both; }
+            .pl5 { animation: pinLeft 0.4s cubic-bezier(0.25,1,0.5,1) 0.57s both; }
+
+            /* 右ピン */
+            .pr1 { animation: pinRight 0.4s cubic-bezier(0.25,1,0.5,1) 0.33s both; }
+            .pr2 { animation: pinRight 0.4s cubic-bezier(0.25,1,0.5,1) 0.39s both; }
+            .pr3 { animation: pinRight 0.4s cubic-bezier(0.25,1,0.5,1) 0.45s both; }
+            .pr4 { animation: pinRight 0.4s cubic-bezier(0.25,1,0.5,1) 0.51s both; }
+            .pr5 { animation: pinRight 0.4s cubic-bezier(0.25,1,0.5,1) 0.57s both; }
+
+            .shine-effect {
+                animation: shine 5s ease-in-out 2s infinite;
+            }
+        </style>
+        <clipPath id="chipClip">
+            <path d="M8,7 L40,7 C40.552,7 41,7.448 41,8 L41,40 C41,40.553 40.552,41 40,41 L8,41 C7.447,41 7,40.553 7,40 L7,8 C7,7.448 7.447,7 8,7 Z"/>
+        </clipPath>
+    </defs>
+
+    <g id="EC2-Instance-Animated" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+
+        <!-- 内側の四角形（9,9 → 39,39） -->
+        <g class="inner-square">
+            <!-- 塗りつぶし（フェードアウトして消える） -->
+            <path class="inner-fill" d="M9,9 L39,9 L39,39 L9,39 Z" fill="#ED7100"/>
+            <!-- 線（常に表示、元のアイコンと同じ白抜き状態） -->
+            <path d="M9,9 L39,9 L39,39 L9,39 Z" fill="none" stroke="#ED7100" stroke-width="2"/>
+        </g>
+
+        <!-- 外枠（7,7 → 41,41 角丸） -->
+        <g class="outer-frame">
+            <path d="M8,7 L40,7 C40.552,7 41,7.448 41,8 L41,40 C41,40.553 40.552,41 40,41 L8,41 C7.447,41 7,40.553 7,40 L7,8 C7,7.448 7.447,7 8,7 Z" fill="none" stroke="#ED7100" stroke-width="2"/>
+
+            <!-- 光のスイープ -->
+            <g clip-path="url(#chipClip)">
+                <rect class="shine-effect" x="4" y="4" width="14" height="40" rx="7" fill="white" opacity="0"/>
+            </g>
+        </g>
+
+        <!-- ===== 上ピン（y: 2→7, 幅2） ===== -->
+        <rect class="pt1" x="11" y="2" width="2" height="5" fill="#ED7100"/>
+        <rect class="pt2" x="17" y="2" width="2" height="5" fill="#ED7100"/>
+        <rect class="pt3" x="23" y="2" width="2" height="5" fill="#ED7100"/>
+        <rect class="pt4" x="29" y="2" width="2" height="5" fill="#ED7100"/>
+        <rect class="pt5" x="35" y="2" width="2" height="5" fill="#ED7100"/>
+
+        <!-- ===== 下ピン（y: 41→46） ===== -->
+        <rect class="pb1" x="11" y="41" width="2" height="5" fill="#ED7100"/>
+        <rect class="pb2" x="17" y="41" width="2" height="5" fill="#ED7100"/>
+        <rect class="pb3" x="23" y="41" width="2" height="5" fill="#ED7100"/>
+        <rect class="pb4" x="29" y="41" width="2" height="5" fill="#ED7100"/>
+        <rect class="pb5" x="35" y="41" width="2" height="5" fill="#ED7100"/>
+
+        <!-- ===== 左ピン（x: 2→7, 高さ2） ===== -->
+        <rect class="pl1" x="2" y="11" width="5" height="2" fill="#ED7100"/>
+        <rect class="pl2" x="2" y="17" width="5" height="2" fill="#ED7100"/>
+        <rect class="pl3" x="2" y="23" width="5" height="2" fill="#ED7100"/>
+        <rect class="pl4" x="2" y="29" width="5" height="2" fill="#ED7100"/>
+        <rect class="pl5" x="2" y="35" width="5" height="2" fill="#ED7100"/>
+
+        <!-- ===== 右ピン（x: 41→46） ===== -->
+        <rect class="pr1" x="41" y="11" width="5" height="2" fill="#ED7100"/>
+        <rect class="pr2" x="41" y="17" width="5" height="2" fill="#ED7100"/>
+        <rect class="pr3" x="41" y="23" width="5" height="2" fill="#ED7100"/>
+        <rect class="pr4" x="41" y="29" width="5" height="2" fill="#ED7100"/>
+        <rect class="pr5" x="41" y="35" width="5" height="2" fill="#ED7100"/>
+
+    </g>
+</svg>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="40px" viewBox="0 0 200 40" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <title>Line-Black-Dashed_Animated</title>
+  <defs>
+    <style>
+      @keyframes dashDraw {
+        0% { stroke-dashoffset: 200; opacity: 0; }
+        10% { opacity: 1; }
+        100% { stroke-dashoffset: 0; opacity: 1; }
+      }
+      @keyframes dashFlow {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -24; }
+      }
+      @keyframes dotAppear {
+        0% { opacity: 0; transform: scale(0); }
+        60% { opacity: 1; transform: scale(1.2); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      .dash-line {
+        animation: dashDraw 1.2s ease-out both, dashFlow 2s linear 1.4s infinite;
+      }
+      .dot-start {
+        animation: dotAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;
+        transform-origin: 10px 20px;
+      }
+      .dot-end {
+        animation: dotAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s both;
+        transform-origin: 190px 20px;
+      }
+    </style>
+  </defs>
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <line class="dash-line" x1="10" y1="20" x2="190" y2="20" stroke="#232F3E" stroke-width="2" stroke-dasharray="8,4" stroke-linecap="round"/>
+    <circle class="dot-start" cx="10" cy="20" r="4" fill="#232F3E"/>
+    <circle class="dot-end" cx="190" cy="20" r="4" fill="#232F3E"/>
+  </g>
+</svg>

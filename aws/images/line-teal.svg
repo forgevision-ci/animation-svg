@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="40px" viewBox="0 0 200 40" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <title>Line-Teal</title>
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <line x1="10" y1="20" x2="180" y2="20" stroke="#00A6A0" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="10" cy="20" r="4" fill="#00A6A0"/>
+    <polygon points="180,14 192,20 180,26" fill="#00A6A0"/>
+  </g>
+</svg>
